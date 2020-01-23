@@ -1,0 +1,16 @@
+{
+  "name" : "IT328/final-project",
+  "authors" : [
+    {
+      "name" : "Nick Gadomskiy",
+      "email" : "ngadomskiy@greenriver.edu"
+    },
+    {
+      "name" : "Raj",
+      "email" : "raj@mail.com"
+    }
+  ],
+  "require" : {
+    "bcosca/fatfree-core" : "dev-master"
+  }
+}
