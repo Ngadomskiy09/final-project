@@ -1,0 +1,22 @@
+<include href="views/header.html">
+<body>
+<form id="form1" method="post" action="#">
+    <div class="form-group">
+        <label for="fname"><strong>First Name: </strong>
+            <input id="fname" type="text" class="form-control" name="fname" value="{{ @fname}}">
+        </label>
+        <check if="{{ @errors['fname'] }}">
+            <span class="err">{{ @errors['fname'] }}</span>
+        </check>
+
+        <label for="lname"><strong>Last Name: </strong>
+            <input id="lname" type="text" class="form-control" name="lname" value="{{ @lname}}">
+        </label>
+        <check if="{{ @errors['lname'] }}">
+            <span class="err">{{ @errors['lname'] }}</span>
+        </check>
+    </div>
+</form>
+
+</body>
+</html>

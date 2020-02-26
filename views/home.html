@@ -5,7 +5,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
 
     <title>Lets Sell</title>
 </head>
@@ -44,9 +44,10 @@
 
         <h2>Posting your trash/treasure is just one click away.</h2>
 
-        <div class="button">
-            <button type="button" class="btn btn-primary">Sell your Trash/Treasure!</button>
-        </div>
+        <form action="create" method="get">
+            <a href="create"><button type="submit" id="create" class="btn btn-primary">Sell your Trash/Treasure!</button></a>
+        </form>
+
     </div>
 </div>
 
