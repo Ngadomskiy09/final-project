@@ -1,19 +1,20 @@
 <?php
+/**
+*author: Rajpreet Dhaliwal and Nick Gadomskiy
+* 1/23/20
+* /final-project/views/home.html
+* index page of the final project
+<*/
 
-/*
- * Nick Gadomskiy and Raj
- * 1/22/20
- * Final project
- */
 
 // Turn on error reporting
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 // Require the autoload file
-require('vendor/autoload.php');
+require_once ("vendor/autoload.php");
 
-// Create an instance of the Base class
+//create an instance of the base class
 $f3 = Base::instance();
 
 // Define a default route
@@ -27,5 +28,5 @@ $f3->route('GET /create', function() {
     echo $view->render("views/create.html");
 });
 
-// Run fat free
+//run fat free
 $f3->run();
