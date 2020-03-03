@@ -37,5 +37,9 @@ $f3->route('GET|POST /create', function() {
     $GLOBALS['controller']->create();
 });
 
+$f3->route('GET|POST /addItem', function() {
+    $GLOBALS['controller']->add();
+});
+
 //run fat free
 $f3->run();

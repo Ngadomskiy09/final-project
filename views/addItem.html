@@ -1,0 +1,16 @@
+<include href="views/header.html">
+<div class="container col-lg-3">
+    <form action="#" method="post">
+        <label for="itemName"><strong>Item Name: </strong>
+            <input id="itemName" type="text" class="form-control" name="itemName" value="{{ @itemName}}" required>
+        </label>
+        <label for="itemDescription"><strong>Item Description: </strong>
+            <input id="itemDescription" type="text" class="form-control" name="itemDescription" value="{{ @itemDescription}}" required>
+        </label>
+        <label for="itemPrice"><strong>Item Name: </strong>
+            <input id="itemPrice" type="text" class="form-control" name="itemPrice" value="{{ @itemPrice}}" required>
+        </label>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Post Item</button>
+    </form>
+</div>
+    <include href="views/footer.html">

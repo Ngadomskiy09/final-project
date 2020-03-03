@@ -24,5 +24,9 @@ class LsController
         echo $template->render('views/create.html');
     }
 
+    public function add(){
+        $template = new Template();
+        echo $template->render('views/addItem.html');
+    }
 
 }
