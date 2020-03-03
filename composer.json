@@ -1,19 +1,23 @@
 {
-  "name" : "IT328/final-project",
-  "authors" : [
+  "name": "IT328/final-project",
+  "authors": [
     {
-      "name" : "Nick Gadomskiy",
-      "email" : "ngadomskiy@greenriver.edu"
+      "name": "Nick Gadomskiy",
+      "email": "ngadomskiy@greenriver.edu"
     },
     {
-      "name" : "Rajpreet Dhaliwal",
-      "email" : "rdhaliwal6@mail.greenriver.edu"
+      "name": "Rajpreet Dhaliwal",
+      "email": "rdhaliwal6@mail.greenriver.edu"
     }
   ],
-  "require" : {
-    "bcosca/fatfree-core" : "dev-master"
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
   },
   "autoload": {
-    "classmap": ["model/", "controller/", "classes/"]
+    "classmap": [
+      "model/",
+      "controller/",
+      "classes/"
+    ]
   }
 }

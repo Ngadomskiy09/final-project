@@ -21,7 +21,7 @@ function validCreate()
 
     if (!validPhone($f3->get('phone'))) {
         $isValid = false;
-        $f3->set("errors['phone']",  "*Please enter a valid phone number");
+        $f3->set("errors['phone']", "*Please enter a valid phone number");
     }
 
     return $isValid;
@@ -57,7 +57,7 @@ function validFname($fname)
 
 function validLname($lname)
 {
-    return !empty($lname) &&  ctype_alpha(($lname));
+    return !empty($lname) && ctype_alpha(($lname));
 }
 
 function validEmail($email)

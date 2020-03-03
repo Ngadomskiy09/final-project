@@ -1,11 +1,12 @@
 <?php
 
-require_once ("config-ls.php");
+require_once("config-ls.php");
 
 //PDO object
 class DatabaseLs
 {
     private $_dbh;
+
     function __construct()
     {
         try {

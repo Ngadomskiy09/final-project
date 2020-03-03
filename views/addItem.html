@@ -1,29 +1,30 @@
 <include href="views/header.html">
-<div class="container col-lg-3">
-    <form action="#" method="post">
-        <label for="itemName"><strong>Item Name: </strong>
-            <input id="itemName" type="text" class="form-control" name="itemName" value="{{ @itemName}}">
-        </label><br>
-        <check if="{{ @errors['itemName'] }}">
-            <span class="err">{{ @errors['itemName'] }}</span>
-        </check>
+    <div class="container col-lg-3">
+        <form action="#" method="post">
+            <label for="itemName"><strong>Item Name: </strong>
+                <input id="itemName" type="text" class="form-control" name="itemName" value="{{ @itemName}}">
+            </label><br>
+            <check if="{{ @errors['itemName'] }}">
+                <span class="err">{{ @errors['itemName'] }}</span>
+            </check>
 
-        <label for="itemDescription"><strong>Item Description: </strong>
-            <input id="itemDescription" type="text" class="form-control" name="itemDescription" value="{{ @itemDescription}}">
-        </label><br>
-        <check if="{{ @errors['itemDescription'] }}">
-            <span class="err">{{ @errors['itemDescription'] }}</span>
-        </check>
+            <label for="itemDescription"><strong>Item Description: </strong>
+                <input id="itemDescription" type="text" class="form-control" name="itemDescription"
+                       value="{{ @itemDescription}}">
+            </label><br>
+            <check if="{{ @errors['itemDescription'] }}">
+                <span class="err">{{ @errors['itemDescription'] }}</span>
+            </check>
 
-        <label for="itemPrice"><strong>Item Price: </strong>
-            <input id="itemPrice" type="text" class="form-control" name="itemPrice" value="{{ @itemPrice}}">
-        </label><br>
-        <check if="{{ @errors['itemPrice'] }}">
-            <span class="err">{{ @errors['itemPrice'] }}</span>
-        </check>
+            <label for="itemPrice"><strong>Item Price: </strong>
+                <input id="itemPrice" type="text" class="form-control" name="itemPrice" value="{{ @itemPrice}}">
+            </label><br>
+            <check if="{{ @errors['itemPrice'] }}">
+                <span class="err">{{ @errors['itemPrice'] }}</span>
+            </check>
 
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Post Item</button>
-    </form>
-</div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Post Item</button>
+        </form>
+    </div>
     <include href="views/footer.html">

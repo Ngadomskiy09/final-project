@@ -3,70 +3,69 @@
     <body>
     <h1 id="personalH1">Create Account</h1>
     <div class="container">
-            <hr class="short">
-            <form id="form1" method="post" action="#">
-                <div class="form-group">
-                    <label for="fname"><strong>First Name: </strong>
-                        <input id="fname" type="text" class="form-control" name="fname" value="{{ @fname}}">
-                    </label>
-                    <check if="{{ @errors['fname'] }}">
-                        <span class="err">{{ @errors['fname'] }}</span>
+        <hr class="short">
+        <form id="form1" method="post" action="#">
+            <div class="form-group">
+                <label for="fname"><strong>First Name: </strong>
+                    <input id="fname" type="text" class="form-control" name="fname" value="{{ @fname}}" required>
+                </label>
+                <check if="{{ @errors['fname'] }}">
+                    <span class="err">{{ @errors['fname'] }}</span>
+                </check>
+
+                <label for="lname"><strong>Last Name: </strong>
+                    <input id="lname" type="text" class="form-control" name="lname" value="{{ @lname}}" required>
+                </label>
+                <check if="{{ @errors['lname'] }}">
+                    <span class="err">{{ @errors['lname'] }}</span>
+                </check>
+                <br>
+
+                <label for="email"><strong>Email: </strong>
+                    <input id="email" type="text" class="form-control" name="email" value="{{ @email}}" required>
+                </label>
+                <check if="{{ @errors['email'] }}">
+                    <span class="err">{{ @errors['email'] }}</span>
+                </check>
+
+                <label for="phone"><strong>Phone Number: </strong>
+                    <input id="phone" type="text" class="form-control" name="phone" value="{{ @phone}}" required>
+                </label>
+                <check if="{{ @errors['phone'] }}">
+                    <span class="err">{{ @errors['phone'] }}</span>
+                </check>
+                <br>
+
+                <label><strong>State:</strong>
+                    <select name="state">
+                        <repeat group="{{ @states }}" value="{{ @state}}">
+                            <option value="{{ @state }}"
+                            <check if="{{ @location == @state }}">
+                                selected = "selected"
+                            </check>
+                            >{{ @state }}
+                        </repeat>
+                    </select>
+                </label><br>
+
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" class="form-control" name="password" id="password"
+                       required>
+
+                <label for="premium"><strong>Premium Membership</strong><br>
+                    <input id="premium" type="checkbox" name="premium" value="premium"
+                    <check if="{{ isset(@premium) }}">
+                        checked = "checked"
                     </check>
+                    >
+                    <label for="premium">Sign me up for a Premium Account!</label>
+                </label>
 
-                    <label for="lname"><strong>Last Name: </strong>
-                        <input id="lname" type="text" class="form-control" name="lname" value="{{ @lname}}">
-                    </label>
-                    <check if="{{ @errors['lname'] }}">
-                        <span class="err">{{ @errors['lname'] }}</span>
-                    </check><br>
-
-                    <label for="email"><strong>Email: </strong>
-                        <input id="email" type="text" class="form-control" name="email" value="{{ @email}}">
-                    </label>
-                    <check if="{{ @errors['email'] }}">
-                        <span class="err">{{ @errors['email'] }}</span>
-                    </check>
-
-                    <label for="phone"><strong>Phone Number: </strong>
-                        <input id="phone" type="text" class="form-control" name="phone" value="{{ @phone}}">
-                    </label>
-                    <check if="{{ @errors['phone'] }}">
-                        <span class="err">{{ @errors['phone'] }}</span>
-                    </check><br>
-
-                    <label><strong>State:</strong>
-                        <select name="state">
-                            <repeat group="{{ @states }}" value="{{ @state}}" >
-                                <option value="{{ @state }}"
-                                        <check if="{{ @location == @state }}">
-                                            selected = "selected"
-                                        </check>
-                                >{{ @state }}
-                            </repeat>
-                        </select>
-                    </label><br>
-
-                    <label for="username"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" class="form-control" name="username" id="username">
-
-                    <label for="password"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" class="form-control" name="password" id="password">
-
-                    <label for="premium"><strong>Premium Membership</strong><br>
-                        <input id="premium" type="checkbox" name="premium" value="premium"
-                        <check if="{{ isset(@premium) }}">
-                            checked = "checked"
-                        </check>
-                        >
-                        <label for="premium">Sign me up for a Premium Account!</label>
-                    </label>
-
-
-                    <div class="btn-bottom">
-                        <button type="submit" class="btn btn-primary" value="next" id="next">Create</button>
-                    </div>
+                <div class="btn-bottom">
+                    <button type="submit" class="btn btn-primary" value="next" id="next">Create</button>
                 </div>
-            </form>
-            </span>
+            </div>
+        </form>
+        </span>
     </div>
-<include href="views/footer.html">
+    <include href="views/footer.html">
