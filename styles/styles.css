@@ -62,3 +62,7 @@ hr {
 h3 {
     text-align: center;
 }
+
+.err {
+    color: darkred;
+}
