@@ -22,7 +22,7 @@
                 <br>
 
                 <label for="email"><strong>Email: </strong>
-                    <input id="email" type="text" class="form-control" name="email" value="{{ @email}}" required>
+                    <input id="email" type="email" class="form-control" name="email" value="{{ @email}}" required>
                 </label>
                 <check if="{{ @errors['email'] }}">
                     <span class="err">{{ @errors['email'] }}</span>
