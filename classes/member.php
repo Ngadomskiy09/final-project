@@ -1,106 +1,52 @@
 <?php
 
-/**
- * Class MemberLs
- */
-class MemberLs
+class LSMember
 {
-    /**
-     * @var
-     */
-    private $_first;
-    /**
-     * @var
-     */
-    private $_last;
-    /**
-     * @var
-     */
-    private $_phone;
-    /**
-     * @var
-     */
+    private $_fname;
+    private $_lname;
     private $_email;
-    /**
-     * @var
-     */
-    private $_username;
-    /**
-     * @var
-     */
-    private $_password;
-    /**
-     * @var
-     */
-    private $_premium;
+    private $_state;
+    private $_phone;
 
-    /**
-     * MemberLs constructor.
-     * @param $_first
-     * @param $_last
-     * @param $_phone
-     * @param $_email
-     * @param $_username
-     * @param $_password
-     * @param $_premium
-     */
-    public function __construct($_first, $_last, $_phone, $_email, $_username, $_password, $_premium)
+    function __construct($fname, $lname, $email, $state, $phone)
     {
-        $this->_first = $_first;
-        $this->_last = $_last;
-        $this->_phone = $_phone;
-        $this->_email = $_email;
-        $this->_username = $_username;
-        $this->_password = $_password;
-        $this->_premium = $_premium;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getFirst()
-    {
-        return $this->_first;
-    }
-
-    /**
-     * @param mixed $first
-     */
-    public function setFirst($first)
-    {
-        $this->_first = $first;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLast()
-    {
-        return $this->_last;
-    }
-
-    /**
-     * @param mixed $last
-     */
-    public function setLast($last)
-    {
-        $this->_last = $last;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPhone()
-    {
-        return $this->_phone;
-    }
-
-    /**
-     * @param mixed $phone
-     */
-    public function setPhone($phone)
-    {
+        $this->_fname = $fname;
+        $this->_lname = $lname;
+        $this->_email = $email;
+        $this->_state = $state;
         $this->_phone = $phone;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFname()
+    {
+        return $this->_fname;
+    }
+
+    /**
+     * @param mixed $fname
+     */
+    public function setFname($fname)
+    {
+        $this->_fname = $fname;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLname()
+    {
+        return $this->_lname;
+    }
+
+    /**
+     * @param mixed $lname
+     */
+    public function setLname($lname)
+    {
+        $this->_lname = $lname;
     }
 
     /**
@@ -122,50 +68,33 @@ class MemberLs
     /**
      * @return mixed
      */
-    public function getUsername()
+    public function getState()
     {
-        return $this->_username;
+        return $this->_state;
     }
 
     /**
-     * @param mixed $username
+     * @param mixed $state
      */
-    public function setUsername($username)
+    public function setState($state)
     {
-        $this->_username = $username;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPassword()
-    {
-        return $this->_password;
-    }
-
-    /**
-     * @param mixed $password
-     */
-    public function setPassword($password)
-    {
-        $this->_password = $password;
+        $this->_state = $state;
     }
 
     /**
      * @return mixed
      */
-    public function getPremium()
+    public function getPhone()
     {
-        return $this->_premium;
+        return $this->_phone;
     }
 
     /**
-     * @param mixed $premium
+     * @param mixed $phone
      */
-    public function setPremium($premium)
+    public function setPhone($phone)
     {
-        $this->_premium = $premium;
+        $this->_phone = $phone;
     }
-
 
 }

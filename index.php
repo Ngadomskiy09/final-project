@@ -15,11 +15,13 @@ error_reporting(E_ALL);
 require_once("vendor/autoload.php");
 require('model/validator.php');
 
+session_start();
+
 //create an instance of the base class
 $f3 = Base::instance();
 $f3->set('DEBUG', 3);
 
-//$db = new DatabaseLs();
+$db = new DatabaseLs();
 $controller = new LsController($f3);
 
 $f3->set('states', array('AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY'));
@@ -42,8 +44,16 @@ $f3->route('GET|POST /addItem', function () {
     $GLOBALS['controller']->add();
 });
 
-$f3->route('GET|POST /sellingDB', function () {
+$f3->route('GET|POST /summary', function() {
+    $GLOBALS['controller']->summary();
+});
+
+$f3->route('GET /sellingDB', function () {
     $GLOBALS['controller']->selling();
+});
+
+$f3->route('GET /admin', function() {
+    $GLOBALS['controller']->admin();
 });
 
 //run fat free

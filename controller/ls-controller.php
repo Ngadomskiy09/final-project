@@ -2,11 +2,12 @@
 class LsController
 {
     private $_f3;
-    private $_val;
+    private $_dbh;
 
     public function __construct($f3)
     {
         $this->_f3 = $f3;
+        $this->_dbh = new DatabaseLs();
     }
 
     public function home(){
@@ -45,6 +46,7 @@ class LsController
                 $_SESSION['phone'] = $phone;
                 $_SESSION['state'] = $state;
                 $_SESSION['premium'] = $premium;
+                $_SESSION['member'] = new LSMember($_POST['fname'], $_POST['lname'], $_POST['email'], $_POST['phone'], $_POST['state']);
                 /*if ($_POST['premium'] == "premium") {
                     $_SESSION['member'] = new PremiumMember($_POST['fname'], $_POST['lname'], $_POST['email'],
                     $_POST['phone'], $_POST['state']);
@@ -77,8 +79,9 @@ class LsController
                 $_SESSION['itemName'] = $itemName;
                 $_SESSION['itemDescription'] = $itemDescription;
                 $_SESSION['itemPrice'] = $itemPrice;
+                $_SESSION['item'] = new Item ($_POST['itemName'], $_POST['itemDescription'], $_POST['itemPrice']);
 
-                $this->_f3->reroute('/sellingDB');
+                $this->_f3->reroute('/summary');
 
             }
 
@@ -88,9 +91,26 @@ class LsController
         echo $template->render('views/addItem.html');
     }
 
+    public function summary()
+    {
+        $this->_dbh->insertItem();
+        $this->_dbh->insertMember();
+        $views = new Template();
+        echo $views->render("views/summary.html");
+    }
+
     public function selling(){
+        $this->_f3->set('itemInfo', $this->_dbh->getItems());
+
         $template = new Template();
         echo $template->render('views/sellingDB.html');
+    }
+
+    public function admin(){
+        $this->_f3->set('memberInfo', $this->_dbh->getMember());
+
+        $template = new Template();
+        echo $template->render('views/admin.html');
     }
 
 }

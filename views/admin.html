@@ -1,22 +1,26 @@
 <include href="views/header.html">
     <div class="container">
-        <h3>Items Database</h3>
+        <h3>Member Database</h3>
 
-        <table id="itemData" class="display">
+        <table id="memberData" class="display">
             <thead>
             <tr>
                 <th>ID</th>
-                <th>Item Name</th>
-                <th>Item Description</th>
-                <th>Item Price</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>State</th>
+                <th>Phone</th>
             </tr>
             </thead>
             <tbody>
-            <repeat group="{{ @itemInfo }}" value="{{ @item }}">
-                <th>{{ @item['item_id'] }}</th>
-                <th>{{ @item['itemName'] }}</th>
-                <th>{{ @item['itemDescription'] }}</th>
-                <th>{{ @item['itemPrice'] }}</th>
+            <repeat group="{{ @memberInfo }}" value="{{ @member }}">
+                <th>{{ @member['lsmember_id'] }}</th>
+                <th>{{ @member['fname'] }}</th>
+                <th>{{ @member['lname'] }}</th>
+                <th>{{ @member['email'] }}</th>
+                <th>{{ @member['state'] }}</th>
+                <th>{{ @member['phone'] }}</th>
             </repeat>
             </tbody>
         </table>
@@ -30,7 +34,7 @@
     <!--<script src="//cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>-->
     <script>
 
-        $('#itemData').DataTable( {
+        $('#memberData').DataTable( {
             responsive: {
                 details: {
                     display: $.fn.dataTable.Responsive.display.modal( {
@@ -49,4 +53,4 @@
         } );
     </script>
 
-<include href="views/footer.html">
+    <include href="views/footer.html">
