@@ -1,5 +1,28 @@
 <?php
 
+/**
+ * CREATE TABLE lsmember (
+ * lsmember_id int NOT NULL AUTO_INCREMENT,
+ * first_name VARCHAR(255) NOT NULL,
+ * last_name VARCHAR(255) NOT NULL,
+ * email VARCHAR(255) NOT NULL,
+ * state CHAR(2),
+ * phone VARCHAR(20) NOT NULL,
+ * premium TINYINT(1) NOT NULL,
+ *
+ * PRIMARY KEY (lsmember_id)
+ * )
+ *
+ * CREATE TABLE letSell (
+ * item_id int NOT NULL AUTO_INCREMENT,
+ * item_name VARCHAR(255) NOT NULL,
+ * item_desc VARCHAR(1000) NOT NULL,
+ * item_price int(10) NOT NULL,
+ *
+ * PRIMARY_KEY (item_id)
+ * )
+ */
+
 require_once("/home2/ngadomsk/config-ls.php");
 
 //PDO object

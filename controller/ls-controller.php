@@ -28,7 +28,7 @@ class LsController
             $email = $_POST['email'];
             $phone = $_POST['phone'];
             $state = $_POST['state'];
-            $premium = $_POST['premium'];
+            //$premium = $_POST['premium'];
 
             // Add data to hive
             $this->_f3->set('fname', $fname);
@@ -36,7 +36,7 @@ class LsController
             $this->_f3->set('email', $email);
             $this->_f3->set('phone', $phone);
             $this->_f3->set('state', $state);
-            $this->_f3->set('premium', $premium);
+            //$this->_f3->set('premium', $premium);
 
             if (validCreate()) {
                 // Write data to SESSION
@@ -45,7 +45,7 @@ class LsController
                 $_SESSION['email'] = $email;
                 $_SESSION['phone'] = $phone;
                 $_SESSION['state'] = $state;
-                $_SESSION['premium'] = $premium;
+                //$_SESSION['premium'] = $premium;
                 $_SESSION['member'] = new LSMember($_POST['fname'], $_POST['lname'], $_POST['email'], $_POST['phone'], $_POST['state']);
                 /*if ($_POST['premium'] == "premium") {
                     $_SESSION['member'] = new PremiumMember($_POST['fname'], $_POST['lname'], $_POST['email'],
