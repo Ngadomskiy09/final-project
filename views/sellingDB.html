@@ -13,10 +13,12 @@
             </thead>
             <tbody>
             <repeat group="{{ @itemInfo }}" value="{{ @item }}">
-                <th>{{ @item['item_id'] }}</th>
-                <th>{{ @item['itemName'] }}</th>
-                <th>{{ @item['itemDescription'] }}</th>
-                <th>{{ @item['itemPrice'] }}</th>
+                <tr>
+                    <th>{{ @item['Item_id'] }}</th>
+                    <th>{{ @item['Item_name'] }}</th>
+                    <th>{{ @item['Item_desc'] }}</th>
+                    <th>{{ @item['Item_price'] }}</th>
+                </tr>
             </repeat>
             </tbody>
         </table>

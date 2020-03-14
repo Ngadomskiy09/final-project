@@ -100,6 +100,7 @@ class LsController
     }
 
     public function selling(){
+        var_dump($this->_dbh->getItems());
         $this->_f3->set('itemInfo', $this->_dbh->getItems());
 
         $template = new Template();
