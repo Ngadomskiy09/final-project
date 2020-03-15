@@ -15,12 +15,14 @@
             </thead>
             <tbody>
             <repeat group="{{ @memberInfo }}" value="{{ @member }}">
-                <th>{{ @member['lsmember_id'] }}</th>
-                <th>{{ @member['fname'] }}</th>
-                <th>{{ @member['lname'] }}</th>
-                <th>{{ @member['email'] }}</th>
-                <th>{{ @member['state'] }}</th>
-                <th>{{ @member['phone'] }}</th>
+                <tr>
+                    <th>{{ @member['lsmember_id'] }}</th>
+                    <th>{{ @member['first_name'] }}</th>
+                    <th>{{ @member['last_name'] }}</th>
+                    <th>{{ @member['email'] }}</th>
+                    <th>{{ @member['state'] }}</th>
+                    <th>{{ @member['phone'] }}</th>
+                </tr>
             </repeat>
             </tbody>
         </table>

@@ -20,7 +20,7 @@ class LSMember
     /**
      * @return mixed
      */
-    public function getFname()
+    function getFname()
     {
         return $this->_fname;
     }
@@ -28,7 +28,7 @@ class LSMember
     /**
      * @param mixed $fname
      */
-    public function setFname($fname)
+    function setFname($fname)
     {
         $this->_fname = $fname;
     }
@@ -36,7 +36,7 @@ class LSMember
     /**
      * @return mixed
      */
-    public function getLname()
+    function getLname()
     {
         return $this->_lname;
     }
@@ -44,7 +44,7 @@ class LSMember
     /**
      * @param mixed $lname
      */
-    public function setLname($lname)
+    function setLname($lname)
     {
         $this->_lname = $lname;
     }
@@ -52,7 +52,7 @@ class LSMember
     /**
      * @return mixed
      */
-    public function getEmail()
+    function getEmail()
     {
         return $this->_email;
     }
@@ -60,7 +60,7 @@ class LSMember
     /**
      * @param mixed $email
      */
-    public function setEmail($email)
+    function setEmail($email)
     {
         $this->_email = $email;
     }
@@ -68,7 +68,7 @@ class LSMember
     /**
      * @return mixed
      */
-    public function getState()
+    function getState()
     {
         return $this->_state;
     }
@@ -76,7 +76,7 @@ class LSMember
     /**
      * @param mixed $state
      */
-    public function setState($state)
+    function setState($state)
     {
         $this->_state = $state;
     }
@@ -84,7 +84,7 @@ class LSMember
     /**
      * @return mixed
      */
-    public function getPhone()
+    function getPhone()
     {
         return $this->_phone;
     }
@@ -92,7 +92,7 @@ class LSMember
     /**
      * @param mixed $phone
      */
-    public function setPhone($phone)
+    function setPhone($phone)
     {
         $this->_phone = $phone;
     }

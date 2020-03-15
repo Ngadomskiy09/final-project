@@ -1,6 +1,7 @@
 <?php
 
-class Item {
+class Item
+{
     private $_itemName;
     private $_itemDescription;
     private $_itemPrice;

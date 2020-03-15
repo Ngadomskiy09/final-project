@@ -26,16 +26,16 @@ class LsController
             $fname = $_POST['fname'];
             $lname = $_POST['lname'];
             $email = $_POST['email'];
-            $phone = $_POST['phone'];
             $state = $_POST['state'];
+            $phone = $_POST['phone'];
             //$premium = $_POST['premium'];
 
             // Add data to hive
             $this->_f3->set('fname', $fname);
             $this->_f3->set('lname', $lname);
             $this->_f3->set('email', $email);
-            $this->_f3->set('phone', $phone);
             $this->_f3->set('state', $state);
+            $this->_f3->set('phone', $phone);
             //$this->_f3->set('premium', $premium);
 
             if (validCreate()) {
@@ -43,10 +43,10 @@ class LsController
                 $_SESSION['fname'] = $fname;
                 $_SESSION['lname'] = $lname;
                 $_SESSION['email'] = $email;
-                $_SESSION['phone'] = $phone;
                 $_SESSION['state'] = $state;
+                $_SESSION['phone'] = $phone;
                 //$_SESSION['premium'] = $premium;
-                $_SESSION['member'] = new LSMember($_POST['fname'], $_POST['lname'], $_POST['email'], $_POST['phone'], $_POST['state']);
+                $_SESSION['member'] = new LSMember($_POST['fname'], $_POST['lname'], $_POST['email'], $_POST['state'], $_POST['phone']);
                 /*if ($_POST['premium'] == "premium") {
                     $_SESSION['member'] = new PremiumMember($_POST['fname'], $_POST['lname'], $_POST['email'],
                     $_POST['phone'], $_POST['state']);
@@ -87,6 +87,7 @@ class LsController
 
         }
 
+        $this->_dbh->insertMember();
         $template = new Template();
         echo $template->render('views/addItem.html');
     }
@@ -94,13 +95,11 @@ class LsController
     public function summary()
     {
         $this->_dbh->insertItem();
-        $this->_dbh->insertMember();
         $views = new Template();
         echo $views->render("views/summary.html");
     }
 
     public function selling(){
-        var_dump($this->_dbh->getItems());
         $this->_f3->set('itemInfo', $this->_dbh->getItems());
 
         $template = new Template();
