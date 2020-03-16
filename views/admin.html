@@ -1,3 +1,7 @@
+<!--/**-->
+<!--*author: Rajpreet Dhaliwal and Nick Gadomskiy-->
+<!--* 1/23/20-->
+<!--This show all the current users.-->
 <include href="views/header.html">
     <div class="container">
         <h3>Member Database</h3>
@@ -36,23 +40,23 @@
     <!--<script src="//cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>-->
     <script>
 
-        $('#memberData').DataTable( {
+        $('#memberData').DataTable({
             responsive: {
                 details: {
-                    display: $.fn.dataTable.Responsive.display.modal( {
-                        header: function ( row ) {
+                    display: $.fn.dataTable.Responsive.display.modal({
+                        header: function (row) {
                             var data = row.data();
                             //return 'Details for '+data[0]+' '+data[1];
-                            return 'Details for '+data[0];
+                            return 'Details for ' + data[0];
                         }
-                    } ),
-                    renderer: $.fn.dataTable.Responsive.renderer.tableAll( {
+                    }),
+                    renderer: $.fn.dataTable.Responsive.renderer.tableAll({
                         tableClass: 'table'
-                    } )
+                    })
                 }
             },
             order: [[1]]
-        } );
+        });
     </script>
 
     <include href="views/footer.html">

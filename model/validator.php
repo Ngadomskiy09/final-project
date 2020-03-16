@@ -1,4 +1,9 @@
 <?php
+/**
+ * This file does the validation.
+ * Creates a function to validate info.
+ * @return bool
+ */
 function validCreate()
 {
     global $f3;
@@ -27,6 +32,10 @@ function validCreate()
     return $isValid;
 }
 
+/**
+ * This function validates the item being posted.
+ * @return bool
+ */
 function validItem()
 {
     global $f3;
@@ -50,36 +59,71 @@ function validItem()
     return $isValid;
 }
 
+/**
+ * validates first name.
+ * @param $fname
+ * @return bool
+ */
 function validFname($fname)
 {
     return !empty($fname) && ctype_alpha($fname);
 }
 
+/**
+ * validates last name.
+ * @param $lname
+ * @return bool
+ */
 function validLname($lname)
 {
     return !empty($lname) && ctype_alpha(($lname));
 }
 
+/**
+ * validates email.
+ * @param $email
+ * @return bool
+ */
 function validEmail($email)
 {
     return !empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 
+/**
+ * validate phone.
+ * @param $phone
+ * @return bool
+ */
 function validPhone($phone)
 {
     return !empty($phone) && ctype_digit($phone) && $phone > 1000000000 && $phone < 10000000000;
 }
 
+/**
+ * validates item, name
+ * @param $itemName
+ * @return bool
+ */
 function validItemName($itemName)
 {
     return !empty($itemName);
 }
 
+/**
+ * validats item description.
+ * @param $itemDescription
+ * @return bool
+ */
 function validItemDescription($itemDescription)
 {
     return !empty($itemDescription);
 }
 
+/**
+ * validates item price.
+ * @param $itemPrice
+ * @return bool
+ */
 function validItemPrice($itemPrice)
 {
     return !empty($itemPrice) && filter_var($itemPrice, FILTER_VALIDATE_FLOAT);

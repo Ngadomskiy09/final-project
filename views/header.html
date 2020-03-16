@@ -1,3 +1,7 @@
+<!--/**-->
+<!--*author: Rajpreet Dhaliwal and Nick Gadomskiy-->
+<!--* 1/23/20-->
+<!--This is the header shortcut.-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,25 +31,25 @@
         <li>
             <a class="nav-link" href="sellingDB">View Item's</a>
         </li>
-    <check if="{{ @SESSION['user'] }}">
-        <true>
-            <li>
-                <a class="nav-link" href="addItem">Sell Item</a>
-            </li>
+        <check if="{{ @SESSION['user'] }}">
+            <true>
+                <li>
+                    <a class="nav-link" href="addItem">Sell Item</a>
+                </li>
                 <li>
                     <a class="nav-link text-left" href="logout">logout</a>
                 </li>
-    </true>
-    <false>
-        <li>
-            <a class="nav-link text-left" href="create">Sign-up</a>
-        </li>
-        <li>
-            <a class="nav-link text-left" href="login">Login</a>
-        </li>
-        <li>
-            <a class="nav-link text-left" href="admin">Admin</a>
-        </li>
-    </check>
+            </true>
+            <false>
+                <li>
+                    <a class="nav-link text-left" href="create">Sign-up</a>
+                </li>
+                <li>
+                    <a class="nav-link text-left" href="login">Login</a>
+                </li>
+                <li>
+                    <a class="nav-link text-left" href="admin">Admin</a>
+                </li>
+        </check>
     </ul>
 </nav>

@@ -1,13 +1,39 @@
 <?php
 
+/**
+ * Class LSMember
+ */
 class LSMember
 {
+    /**
+     * @var
+     */
     private $_fname;
+    /**
+     * @var
+     */
     private $_lname;
+    /**
+     * @var
+     */
     private $_email;
+    /**
+     * @var
+     */
     private $_state;
+    /**
+     * @var
+     */
     private $_phone;
 
+    /**
+     * LSMember constructor.
+     * @param $fname
+     * @param $lname
+     * @param $email
+     * @param $state
+     * @param $phone
+     */
     function __construct($fname, $lname, $email, $state, $phone)
     {
         $this->_fname = $fname;

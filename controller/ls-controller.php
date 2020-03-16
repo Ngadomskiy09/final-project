@@ -1,27 +1,53 @@
 <?php
+/**
+ * Class LsController
+ * This controls the different views.
+ */
 class LsController
 {
+    /**
+     * @var
+     */
     private $_f3;
+    /**
+     * @var DatabaseLs
+     */
     private $_dbh;
 
+    /**
+     * LsController constructor.
+     * @param $f3
+     */
     public function __construct($f3)
     {
         $this->_f3 = $f3;
         $this->_dbh = new DatabaseLs();
     }
 
-    public function home(){
+    /**
+     * readers home
+     */
+    public function home()
+    {
         $template = new Template();
         echo $template->render('views/home.html');
     }
 
-    public function login(){
+    /**
+     * readers login
+     */
+    public function login()
+    {
         $template = new Template();
         echo $template->render('views/login.html');
     }
 
-    public function create(){
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    /**
+     * readers signup
+     */
+    public function create()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //Get Data from form
             $fname = $_POST['fname'];
             $lname = $_POST['lname'];
@@ -62,7 +88,11 @@ class LsController
         echo $template->render('views/create.html');
     }
 
-    public function add(){
+    /**
+     * readers new post
+     */
+    public function add()
+    {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Get data from form
             $itemName = $_POST['itemName'];
@@ -92,6 +122,9 @@ class LsController
         echo $template->render('views/addItem.html');
     }
 
+    /**
+     * readers post summary
+     */
     public function summary()
     {
         $this->_dbh->insertItem();
@@ -99,20 +132,31 @@ class LsController
         echo $views->render("views/summary.html");
     }
 
-    public function selling(){
+    /**
+     * readers selling list
+     */
+    public function selling()
+    {
         $this->_f3->set('itemInfo', $this->_dbh->getItems());
 
         $template = new Template();
         echo $template->render('views/sellingDB.html');
     }
 
-    public function admin(){
+    /**
+     * readers admin page
+     */
+    public function admin()
+    {
         $this->_f3->set('memberInfo', $this->_dbh->getMember());
 
         $template = new Template();
         echo $template->render('views/admin.html');
     }
 
+    /**
+     * logout's use and return's to home.
+     */
     public function logout()
     {
         $_SESSION["user"] = false;
@@ -120,6 +164,9 @@ class LsController
         echo $template->render('views/home.html');
     }
 
+    /**
+     * login's user and redirects to postings.
+     */
     public function success()
     {
         $_SESSION["user"] = true;

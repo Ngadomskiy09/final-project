@@ -1,6 +1,8 @@
 <?php
 
 /**
+ * This file helps us connect to the database and make a pdo.
+ *
  * CREATE TABLE lsmember (
  * lsmember_id int NOT NULL AUTO_INCREMENT,
  * first_name VARCHAR(255) NOT NULL,
@@ -26,10 +28,20 @@
 //require_once("/home2/ngadomsk/config-ls.php");
 require_once("/home/rdhaliwa/config-ls.php");
 //PDO object
+
+/**
+ * Class DatabaseLs
+ */
 class DatabaseLs
 {
+    /**
+     * @var PDO
+     */
     private $_dbh;
 
+    /**
+     * DatabaseLs constructor.
+     */
     function __construct()
     {
         /*try {
@@ -42,6 +54,9 @@ class DatabaseLs
         $this->_dbh = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
     }
 
+    /**
+     * @return array
+     */
     function getItems()
     {
         $sql = "SELECT * FROM letSell";
@@ -55,6 +70,9 @@ class DatabaseLs
         return $result;
     }
 
+    /**
+     *
+     */
     function insertItem()
     {
         $itemObj = $_SESSION['item'];
@@ -70,6 +88,9 @@ class DatabaseLs
         $statement->execute();
     }
 
+    /**
+     * @return array
+     */
     function getMember()
     {
         $sql = "SELECT * FROM lsmember";
@@ -83,6 +104,9 @@ class DatabaseLs
         return $result;
     }
 
+    /**
+     *
+     */
     function insertMember()
     {
         $memberObj = $_SESSION['member'];
