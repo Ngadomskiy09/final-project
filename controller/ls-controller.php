@@ -54,7 +54,7 @@ class LsController
                     $_SESSION['member'] = new Member($_POST['fname'], $_POST['lname'], $_POST['email'],
                         $_POST['phone'], $_POST['state']);
                 }*/
-                $this->_f3->reroute('/addItem');
+                $this->_f3->reroute('/sellingDB');
             }
 
         }
@@ -113,4 +113,17 @@ class LsController
         echo $template->render('views/admin.html');
     }
 
+    public function logout()
+    {
+        $_SESSION["user"] = false;
+        $template = new Template();
+        echo $template->render('views/home.html');
+    }
+
+    public function success()
+    {
+        $_SESSION["user"] = true;
+        $template = new Template();
+        echo $template->render('views/sellingDB.html');
+    }
 }

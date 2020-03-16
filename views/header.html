@@ -21,17 +21,31 @@
     <title>Lets Sell</title>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark container-fluid">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand font-weight-bold h1" href="../final-project">Let's Sell</a>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li>
+            <a class="nav-link" href="sellingDB">View Item's</a>
+        </li>
+    <check if="{{ @SESSION['user'] }}">
+        <true>
+            <li>
+                <a class="nav-link" href="addItem">Sell Item</a>
+            </li>
+                <li>
+                    <a class="nav-link text-left" href="logout">logout</a>
+                </li>
+    </true>
+    <false>
+        <li>
+            <a class="nav-link text-left" href="create">Sign-up</a>
+        </li>
+        <li>
+            <a class="nav-link text-left" href="login">Login</a>
+        </li>
+        <li>
+            <a class="nav-link text-left" href="admin">Admin</a>
+        </li>
+    </check>
     </ul>
-    <form class="form-inline my-2 my-lg-0 pr-1" action="create" method="get">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Sign-up</button>
-    </form>
-    <form class="form-inline my-2 my-lg-0" action="login" method="post">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
-    </form>
-    <form class="form-inline my-2 my-lg-0" action="admin" method="get">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Admin</button>
-    </form>
 </nav>

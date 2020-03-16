@@ -23,8 +23,8 @@
  * )
  */
 
-require_once("/home2/ngadomsk/config-ls.php");
-
+//require_once("/home2/ngadomsk/config-ls.php");
+require_once("/home/rdhaliwa/config-ls.php");
 //PDO object
 class DatabaseLs
 {

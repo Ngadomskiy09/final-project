@@ -32,7 +32,7 @@ $f3->route('GET /', function ($f3) {
 });
 
 // Define a route to show login
-$f3->route('POST /login', function () {
+$f3->route('GET|POST /login', function () {
     $GLOBALS['controller']->login();
 });
 
@@ -48,7 +48,7 @@ $f3->route('GET|POST /summary', function() {
     $GLOBALS['controller']->summary();
 });
 
-$f3->route('GET /sellingDB', function () {
+$f3->route('GET|POST /sellingDB', function () {
     $GLOBALS['controller']->selling();
 });
 
@@ -56,5 +56,12 @@ $f3->route('GET /admin', function() {
     $GLOBALS['controller']->admin();
 });
 
+$f3->route('GET /logout', function() {
+    $GLOBALS['controller']->logout();
+});
+
+$f3->route('GET /success', function() {
+    $GLOBALS['controller']->sucess();
+});
 //run fat free
 $f3->run();
