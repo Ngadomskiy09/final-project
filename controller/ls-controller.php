@@ -80,7 +80,7 @@ class LsController
                     $_SESSION['member'] = new Member($_POST['fname'], $_POST['lname'], $_POST['email'],
                         $_POST['phone'], $_POST['state']);
                 }*/
-                $this->_f3->reroute('/sellingDB');
+                $this->_f3->reroute('/login');
             }
 
         }

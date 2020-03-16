@@ -61,7 +61,7 @@ $f3->route('GET /logout', function() {
 });
 
 $f3->route('GET /success', function() {
-    $GLOBALS['controller']->sucess();
+    $GLOBALS['controller']->success();
 });
 //run fat free
 $f3->run();
