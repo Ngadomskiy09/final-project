@@ -24,11 +24,6 @@ function validCreate()
         $f3->set("errors['email']", "*Please enter a valid email");
     }
 
-    if (!validPhone($f3->get('phone'))) {
-        $isValid = false;
-        $f3->set("errors['phone']", "*Please enter a valid phone number");
-    }
-
     return $isValid;
 }
 
@@ -54,6 +49,13 @@ function validItem()
     if (!validItemPrice($f3->get('itemPrice'))) {
         $isValid = false;
         $f3->set("errors['itemPrice']", "*Please enter your Items price");
+    }
+
+    if ($_SESSION['premium'] == true) {
+        if (!validPhone($f3->get('phone'))) {
+            $isValid = false;
+            $f3->set("errors['phone']", "*Please enter a valid phone number");
+        }
     }
 
     return $isValid;

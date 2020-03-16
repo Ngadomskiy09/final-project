@@ -53,16 +53,14 @@ class LsController
             $lname = $_POST['lname'];
             $email = $_POST['email'];
             $state = $_POST['state'];
-            $phone = $_POST['phone'];
-            //$premium = $_POST['premium'];
+            $premium = $_POST['premium'];
 
             // Add data to hive
             $this->_f3->set('fname', $fname);
             $this->_f3->set('lname', $lname);
             $this->_f3->set('email', $email);
             $this->_f3->set('state', $state);
-            $this->_f3->set('phone', $phone);
-            //$this->_f3->set('premium', $premium);
+            $this->_f3->set('premium', $premium);
 
             if (validCreate()) {
                 // Write data to SESSION
@@ -70,16 +68,9 @@ class LsController
                 $_SESSION['lname'] = $lname;
                 $_SESSION['email'] = $email;
                 $_SESSION['state'] = $state;
-                $_SESSION['phone'] = $phone;
-                //$_SESSION['premium'] = $premium;
-                $_SESSION['member'] = new LSMember($_POST['fname'], $_POST['lname'], $_POST['email'], $_POST['state'], $_POST['phone']);
-                /*if ($_POST['premium'] == "premium") {
-                    $_SESSION['member'] = new PremiumMember($_POST['fname'], $_POST['lname'], $_POST['email'],
-                    $_POST['phone'], $_POST['state']);
-                } else {
-                    $_SESSION['member'] = new Member($_POST['fname'], $_POST['lname'], $_POST['email'],
-                        $_POST['phone'], $_POST['state']);
-                }*/
+                $_SESSION['premium'] = $premium;
+                $_SESSION['member'] = new LSMember($_POST['fname'], $_POST['lname'], $_POST['email'], $_POST['state']);
+
                 $this->_f3->reroute('/login');
             }
 
@@ -98,19 +89,28 @@ class LsController
             $itemName = $_POST['itemName'];
             $itemDescription = $_POST['itemDescription'];
             $itemPrice = $_POST['itemPrice'];
+            $itemPhone = $_POST['phone'];
 
             // Add data to hive
             $this->_f3->set('itemName', $itemName);
             $this->_f3->set('itemDescription', $itemDescription);
             $this->_f3->set('itemPrice', $itemPrice);
+            $this->_f3->set('itemPhone', $itemPhone);
 
             if (validItem()) {
                 //Write data to session
                 $_SESSION['itemName'] = $itemName;
                 $_SESSION['itemDescription'] = $itemDescription;
                 $_SESSION['itemPrice'] = $itemPrice;
-                $_SESSION['item'] = new Item ($_POST['itemName'], $_POST['itemDescription'], $_POST['itemPrice']);
-
+                $_SESSION['itemPhone'] = $_POST['phone'];
+                if($_SESSION['premium'] = false) {
+                    $_SESSION['item'] = new Item ($_POST['itemName'], $_POST['itemDescription'], $_POST['itemPrice']);
+                }
+                else
+                {
+                    $_SESSION['item'] = new LSPM ($_POST['itemName'], $_POST['itemDescription'], $_POST['itemPrice']);
+                   $_SESSION['item']->setPhone($_POST['phone']);
+                }
                 $this->_f3->reroute('/summary');
 
             }
@@ -127,6 +127,7 @@ class LsController
      */
     public function summary()
     {
+        var_dump($_SESSION['item']);
         $this->_dbh->insertItem();
         $views = new Template();
         echo $views->render("views/summary.html");
@@ -160,6 +161,7 @@ class LsController
     public function logout()
     {
         $_SESSION["user"] = false;
+        $_SESSION['premium'] = false;
         $template = new Template();
         echo $template->render('views/home.html');
     }

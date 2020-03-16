@@ -8,20 +8,27 @@
             <check if="{{ @errors['itemName'] }}">
                 <span class="err">{{ @errors['itemName'] }}</span>
             </check>
+            <label for="itemPrice"><strong>Item Price: </strong>
+                <input id="itemPrice" type="text" class="form-control" name="itemPrice" value="{{ @itemPrice}}">
+            </label><br>
+            <check if="{{ @errors['itemPrice'] }}">
+                <span class="err">{{ @errors['itemPrice'] }}</span>
+            </check>
 
+            <check if="{{@SESSION['premium']}} = 'true'">
+                <label for="phone"><strong>Seller Phone Number: </strong>
+                    <input id="phone" type="text" class="form-control" name="phone" value="{{ @phone}}" required>
+                </label>
+                <check if="{{ @errors['phone'] }}">
+                    <span class="err">{{ @errors['phone'] }}</span>
+                </check>
+            </check>
             <label for="itemDescription"><strong>Item Description: </strong>
                 <input id="itemDescription" type="text" class="form-control" name="itemDescription"
                        value="{{ @itemDescription}}">
             </label><br>
             <check if="{{ @errors['itemDescription'] }}">
                 <span class="err">{{ @errors['itemDescription'] }}</span>
-            </check>
-
-            <label for="itemPrice"><strong>Item Price: </strong>
-                <input id="itemPrice" type="text" class="form-control" name="itemPrice" value="{{ @itemPrice}}">
-            </label><br>
-            <check if="{{ @errors['itemPrice'] }}">
-                <span class="err">{{ @errors['itemPrice'] }}</span>
             </check>
 
 

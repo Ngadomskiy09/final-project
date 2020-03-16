@@ -21,10 +21,6 @@ class LSMember
      * @var
      */
     private $_state;
-    /**
-     * @var
-     */
-    private $_phone;
 
     /**
      * LSMember constructor.
@@ -32,15 +28,13 @@ class LSMember
      * @param $lname
      * @param $email
      * @param $state
-     * @param $phone
      */
-    function __construct($fname, $lname, $email, $state, $phone)
+    function __construct($fname, $lname, $email, $state)
     {
         $this->_fname = $fname;
         $this->_lname = $lname;
         $this->_email = $email;
         $this->_state = $state;
-        $this->_phone = $phone;
     }
 
     /**
@@ -106,21 +100,4 @@ class LSMember
     {
         $this->_state = $state;
     }
-
-    /**
-     * @return mixed
-     */
-    function getPhone()
-    {
-        return $this->_phone;
-    }
-
-    /**
-     * @param mixed $phone
-     */
-    function setPhone($phone)
-    {
-        $this->_phone = $phone;
-    }
-
 }

@@ -77,13 +77,22 @@ class DatabaseLs
     {
         $itemObj = $_SESSION['item'];
 
-        $sql = "INSERT INTO letSell VALUES (DEFAULT, :itemName, :itemDescription, :itemPrice)";
+        $sql = "INSERT INTO letSell VALUES (DEFAULT, :itemName, :itemDescription, :itemPrice, :itemPhone)";
 
         $statement = $this->_dbh->prepare($sql);
 
         $statement->bindParam(":itemName", $itemObj->getItemName());
         $statement->bindParam(":itemDescription", $itemObj->getItemDescription());
         $statement->bindParam(":itemPrice", $itemObj->getItemPrice());
+
+        if($_SESSION['premium'] == true) {
+            $statement->bindParam(":itemPhone", $itemObj->getItemPhone());
+        }
+        else
+        {
+            $x = "0000000000";
+            $statement->bindParam(":itemPhone", $x);
+        }
 
         $statement->execute();
     }
@@ -111,7 +120,7 @@ class DatabaseLs
     {
         $memberObj = $_SESSION['member'];
 
-        $sql = "INSERT INTO lsmember VALUES (DEFAULT, :fname, :lname, :email, :state, :phone)";
+        $sql = "INSERT INTO lsmember VALUES (DEFAULT, :fname, :lname, :email, :state, :premium)";
 
         $statement = $this->_dbh->prepare($sql);
 
@@ -119,8 +128,12 @@ class DatabaseLs
         $statement->bindParam(":lname", $memberObj->getLname());
         $statement->bindParam(":email", $memberObj->getEmail());
         $statement->bindParam(":state", $memberObj->getState());
-        $statement->bindParam(":phone", $memberObj->getPhone());
-        //$statement->bindParam(":premium", $memberObj->getItemPrice());
+        if($_SESSION['premium'] == true)
+        {
+            $x = 1;
+        }
+
+        $statement->bindParam(":premium", $x);
 
         $statement->execute();
     }
