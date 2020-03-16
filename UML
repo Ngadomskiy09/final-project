@@ -1,0 +1,28 @@
+Class 1:
+This class is used to create member objects to hold member info.
+Class Member:
+Private Variable:
+Fname – first name of member
+Lname – last name of member
+Email – email of member
+State – state of member
+This class also has a default constructor to set all the values.
+This class also had getters and setters for each variable listed above.
+
+Class 2:
+This class is used to hold data for item being sold.
+Class Item:
+Private Variable:
+itemName – Name of the item being sold.
+ItemDescription – A brief description of the item being sold.
+itemPrice – The price for the item.
+This class also has a default constructor to set all the values.
+This class also had getters and setters for each variable listed above.
+
+Class 3:
+This class is only available to premium members. This lets them attach there phone number so people could contact them. It has all the variables as class 2 but with one more being the phone number.
+Class premium Item extends item
+Private Variable:
+itemPhone – phone number of use that posted the item.
+ This class does not have constructer because it used the one from class 2.
+This class also had getters and setters for variable listed above.
