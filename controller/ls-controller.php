@@ -87,7 +87,7 @@ class LsController
      */
     public function add()
     {
-        var_dump($_SESSION['member']);
+        //var_dump($_SESSION['member']);
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Get data from form
             $itemName = $_POST['itemName'];
