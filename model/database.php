@@ -25,8 +25,8 @@
  * )
  */
 
-//require_once("/home2/ngadomsk/config-ls.php");
-require_once("/home/rdhaliwa/config-ls.php");
+require_once("/home2/ngadomsk/config-ls.php");
+//require_once("/home/rdhaliwa/config-ls.php");
 //PDO object
 
 /**
@@ -85,7 +85,7 @@ class DatabaseLs
         $statement->bindParam(":itemDescription", $itemObj->getItemDescription());
         $statement->bindParam(":itemPrice", $itemObj->getItemPrice());
 
-        if($_SESSION['premium'] == true) {
+        if($_SESSION['premium'] = $_POST['premium']) {
             $statement->bindParam(":itemPhone", $itemObj->getItemPhone());
         }
         else
@@ -128,12 +128,14 @@ class DatabaseLs
         $statement->bindParam(":lname", $memberObj->getLname());
         $statement->bindParam(":email", $memberObj->getEmail());
         $statement->bindParam(":state", $memberObj->getState());
-        if($_SESSION['premium'] == true)
+        if($_SESSION['premium'] = $_POST['premium'])
         {
             $x = 1;
+            $statement->bindParam(":premium", $x);
+        } else {
+            $x = 0;
+            $statement->bindParam(":premium", $x);
         }
-
-        $statement->bindParam(":premium", $x);
 
         $statement->execute();
     }

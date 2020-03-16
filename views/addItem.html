@@ -19,10 +19,11 @@
                 <label for="phone"><strong>Seller Phone Number: </strong>
                     <input id="phone" type="text" class="form-control" name="phone" value="{{ @phone}}" required>
                 </label>
-                <check if="{{ @errors['phone'] }}">
+                <!--<check if="{{ @errors['phone'] }}">
                     <span class="err">{{ @errors['phone'] }}</span>
-                </check>
+                </check>-->
             </check>
+
             <label for="itemDescription"><strong>Item Description: </strong>
                 <input id="itemDescription" type="text" class="form-control" name="itemDescription"
                        value="{{ @itemDescription}}">

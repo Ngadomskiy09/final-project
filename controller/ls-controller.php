@@ -68,10 +68,13 @@ class LsController
                 $_SESSION['lname'] = $lname;
                 $_SESSION['email'] = $email;
                 $_SESSION['state'] = $state;
-                $_SESSION['premium'] = $premium;
+                $_SESSION['premium'] = $_POST['premium'];
                 $_SESSION['member'] = new LSMember($_POST['fname'], $_POST['lname'], $_POST['email'], $_POST['state']);
 
-                $this->_f3->reroute('/login');
+
+                $_SESSION['user'] = true;
+                $this->_f3->reroute('/addItem');
+
             }
 
         }
@@ -84,6 +87,7 @@ class LsController
      */
     public function add()
     {
+        var_dump($_SESSION['member']);
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Get data from form
             $itemName = $_POST['itemName'];
@@ -103,13 +107,11 @@ class LsController
                 $_SESSION['itemDescription'] = $itemDescription;
                 $_SESSION['itemPrice'] = $itemPrice;
                 $_SESSION['itemPhone'] = $_POST['phone'];
-                if($_SESSION['premium'] = false) {
-                    $_SESSION['item'] = new Item ($_POST['itemName'], $_POST['itemDescription'], $_POST['itemPrice']);
-                }
-                else
-                {
+                if($_SESSION['premium'] == 'premium') {
                     $_SESSION['item'] = new LSPM ($_POST['itemName'], $_POST['itemDescription'], $_POST['itemPrice']);
-                   $_SESSION['item']->setPhone($_POST['phone']);
+                    $_SESSION['item']->setPhone($_POST['phone']);
+                } else {
+                    $_SESSION['item'] = new Item ($_POST['itemName'], $_POST['itemDescription'], $_POST['itemPrice']);
                 }
                 $this->_f3->reroute('/summary');
 
@@ -127,7 +129,7 @@ class LsController
      */
     public function summary()
     {
-        var_dump($_SESSION['item']);
+        //var_dump($_SESSION['item']);
         $this->_dbh->insertItem();
         $views = new Template();
         echo $views->render("views/summary.html");

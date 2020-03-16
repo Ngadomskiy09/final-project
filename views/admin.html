@@ -14,7 +14,7 @@
                 <th>Last Name</th>
                 <th>Email</th>
                 <th>State</th>
-                <th>Phone</th>
+                <th>Premium</th>
             </tr>
             </thead>
             <tbody>
@@ -25,7 +25,11 @@
                     <th>{{ @member['last_name'] }}</th>
                     <th>{{ @member['email'] }}</th>
                     <th>{{ @member['state'] }}</th>
-                    <th>{{ @member['phone'] }}</th>
+                    <th><input type="checkbox"
+                        <check if="{{ @memeber['premium'] }} = '1'">
+                            checked = "checked"
+                        </check>
+                    </th>
                 </tr>
             </repeat>
             </tbody>
